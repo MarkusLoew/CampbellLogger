@@ -14,7 +14,7 @@ sensor.names <- c("Batt_volt_Min", "RawCh_SGA2_1_Avg", "RawAh_SGA2_1_Avg", "RawB
 "IR_Horz_Min_1_", "IR_Horz_Min_2_", "IR_Horz_Max_1_",
 "IR_Horz_Max_2_", "IR_Horz_Avg_1_", "IR_Horz_Avg_2_",
 "IR_Horz_Std_1_", "IR_Horz_Std_2_", "Soil_Avg_1_", "Soil_Avg_2_", "Soil_Avg_3_", "Soil_Avg_4_", "Soil_Avg_5_",
-"PAR_Avg", "Temp_Avg_1_", "Temp_Avg_2_", "Hum_Avg_1_", "Hum_Avg_2_", "PTemp", "LithiumBatt_Min")
+"PAR_Avg", "PPFD_Avg", "Temp_Avg_1_", "Temp_Avg_2_", "Hum_Avg_1_", "Hum_Avg_2_", "PTemp", "LithiumBatt_Min")
 
 #' Identify the SensorID associated with a specific sensor
 #'
@@ -40,6 +40,14 @@ GetSensorID <- function(sensor.name) {
    out <- data.frame(FullName = sensor.name,
                      SensorID = "1",
                      SensorName = "PAR_Avg")
+   return(out)
+   }
+   
+   if (grepl("PPFD_Avg", sensor.name) == TRUE) {
+   
+   out <- data.frame(FullName = sensor.name,
+                     SensorID = "1",
+                     SensorName = "PPFD_Avg")
    return(out)
    }
    
