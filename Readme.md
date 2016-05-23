@@ -14,6 +14,7 @@ for details on the functions provided by this package.
 To install straight from github the "devtools" is needed.
 ```r
 install.packages("devtools")
+library(devtools)
 ```
 
 Then, CampbellLogger package installation via
