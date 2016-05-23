@@ -11,7 +11,12 @@ for details on the functions provided by this package.
 
 ### Installation
 
-Installation straight from github via
+To install straight from github the "devtools" is needed.
+```r
+install.packages("devtools")
+```
+
+Then, CampbellLogger package installation via
 
 ```{r}
 install_github("MarkusLoew/AgFace/packages/CampbellLogger")
