@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/MarkusLoew/CampbellLogger.svg?branch=master)](https://travis-ci.org/MarkusLoew/CampbellLogger)
+
+
+
 CampbellLogger
 ==============
 
@@ -11,7 +15,8 @@ for details on the functions provided by this package.
 
 ### Installation
 
-To install straight from github the "devtools" is needed.
+To install this package straight from github the "devtools" is needed.
+
 ```r
 install.packages("devtools")
 library(devtools)
@@ -20,7 +25,7 @@ library(devtools)
 Then, CampbellLogger package installation via
 
 ```{r}
-install_github("MarkusLoew/AgFace/packages/CampbellLogger")
+devtools::install_github("MarkusLoew/CampbellLogger")
 ```
 
 Installation under Windows might require the installation of Rtools. There will be a prompt for it if needed.
