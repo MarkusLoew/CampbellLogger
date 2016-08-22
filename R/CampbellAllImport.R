@@ -57,7 +57,7 @@ CampbellAllImport <- function(logger.folder   = "~/AgFace/2015/Campbell_logger/l
         if (isTRUE(use.parallel) == FALSE) {
 	 	my.list <- lapply(found.files, function(x) CampbellFileImport(x, time.zone = time.zone, skip.rows = skip.rows)) 
 	} else {
-	    	stopifnot("parallel" %in% rownames(installed.packages()))
+	    	stopifnot("parallel" %in% rownames(utils::installed.packages()))
 	    	my.list <- parallel::mclapply(found.files, function(x) CampbellFileImport(x, skip.rows = skip.rows, time.zone = time.zone))
 	}
      }

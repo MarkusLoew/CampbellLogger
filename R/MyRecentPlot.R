@@ -12,6 +12,7 @@
 #' @param ephemeral.time Logical. If FALSE, shading for night time will not be added to the plot. Defaults to TRUE
 #' @param ephemeral.object Name of the object with sunrise and seunset informationation. If an object name is provided, it has to have the same structure as the output of \code{link{CampbellSunriseSunset}}, i.e. provide a Date, sunrise, and sunset column for each date in the \code{data} range. Defaults to \code{ephemeral.times}. Only evaluated when \code{ephemeral.time} is TRUE.
 #' @return Returns a ggplot object.
+#' @export
 
 MyRecentPlot <- function(para, hours, data, logger = NA, yscale_min = NA, yscale_max = NA, cartesian = TRUE, sensor.colour = FALSE, ephemeral.time = TRUE, ephemeral.object = ephemeral.times) {
     # require(ggplot2) # will be loaded when the package is loaded

@@ -14,9 +14,9 @@ CampbellFileImport <- function(file,
   # converts the TIMESTAMP to POSIXct, given the provided time zone
   # returns a data frame
   
-  my.header   <- read.csv(file, skip = 1, nrows = 4)
+  my.header   <- utils::read.csv(file, skip = 1, nrows = 4)
   my.header   <- names(my.header)
-  my.descript <- read.csv(file, skip = 3, nrows = 4)
+  my.descript <- utils::read.csv(file, skip = 3, nrows = 4)
   my.descript <- names(my.descript)
 
 # only import last rows as defined by parameter lrows
@@ -27,7 +27,7 @@ CampbellFileImport <- function(file,
      to.skip <- base.skip + skip.rows
   }
 
-  df <- read.csv(file, skip = to.skip, na.strings = c("NAN", "+INF", "-INF"))
+  df <- utils::read.csv(file, skip = to.skip, na.strings = c("NAN", "+INF", "-INF"))
 
   names(df) <- my.header
   names(df) <- gsub("\\.", "_", names(df))
