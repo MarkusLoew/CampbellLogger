@@ -3,11 +3,14 @@
 #' @description Calculates sunrise and sunset for each unique day from the \code{TIMESTAMP} information of the logger file. Uses function \code{sunriseset} from package \pkg{maptools}
 #' @param data Data frame with a \code{TIMESTAMP} entry
 #' @param location Location of the measurement for which to calculate sunrise and sunset. Given in matrix format containing x and y coordinates. Defaults to \code{Agface.loc}.
-#' @param DayLigthSaving Logical. If \code{TRUE} one hour is subtracted from the calculated sunrise and sunset times.
+#' @param DayLightSaving Logical. If \code{TRUE} one hour is subtracted from the calculated sunrise and sunset times.
 #' @return Returns a data frame with Date and sunrise/sunset information for each \code{TIMESTAMP}.
-#' @seealso \code{\link{maptools}}
+#' @export
 
 CampbellSunriseSunset <- function(data, location = Agface.loc, DayLightSaving = FALSE) {
+
+utils::globalVariables(c("Date", "Agface.loc", "Creswick.loc"))
+
 #require(maptools) # provides functions "sun-methods" # will be loaded when package is loaded
 # Agface field site position
 # -36.751367, 142.114477

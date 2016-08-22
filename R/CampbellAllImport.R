@@ -6,9 +6,12 @@
 #' @param logger.folder Full path to the location of the *.dat files. Defaults to "~/AgFace/2015/Campbell_logger/logger_data"
 #' @param log.interval Select the files based on the common log interval that is specified in the filename. Allowed values are \code{"5Min", "15Min", "Hourly", "Daily"}. Only one time interval is allowed.
 #' @param logger.name Select files from one logger only. \code{logger.name} has to match the System name as given in the file name. Allowed values are \code{"SYS1", "SYS2", ..., "SYS8"}
-#' @param skip.rows. Number of rows to skip in the file to speed up file import. Numeric, defaults to NA.
+#' @param time.zone Time zone to be used during import. Default is "Australia/Melbourne"
+#' @param checkduplicates Logical. Should duplicate rows in the data removed? Defaults to TRUE.
+#' @param skip.rows Number of rows to skip in the file to speed up file import. Numeric, defaults to NA.
 #' @param use.parallel Logical. Option to use parallel processing for the file import. Parallel-computing has to be configured before this option can be used. Defaults to FALSE.
 #' @return Returns data frame with all imported *.dat files.
+#' @export
 
 CampbellAllImport <- function(logger.folder   = "~/AgFace/2015/Campbell_logger/logger_data",
                               log.interval    = "5Min",

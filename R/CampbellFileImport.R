@@ -4,6 +4,7 @@
 #' @param checkduplicates Check for and remove duplicates from the file. Logical, defaults to TRUE.
 #' @param skip.rows Number of rows of the start of the file to discard. This si to speed up data import by reducing number of samples. Numeric, defaults to NA.
 #' @return data frame with imported *.dat file
+#' @export
 
 CampbellFileImport <- function(file, 
                                time.zone = "Australia/Melbourne", 

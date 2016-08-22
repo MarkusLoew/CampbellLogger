@@ -15,6 +15,7 @@
 #' @export
 
 MyRecentPlot <- function(para, hours, data, logger = NA, yscale_min = NA, yscale_max = NA, cartesian = TRUE, sensor.colour = FALSE, ephemeral.time = TRUE, ephemeral.object = ephemeral.times) {
+    utils::globalVariables(c("SensorID", "ephemeral.times"))
     # require(ggplot2) # will be loaded when the package is loaded
     
     # determine if all logger data should be used or only one specific logger

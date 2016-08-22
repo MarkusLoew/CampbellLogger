@@ -17,9 +17,13 @@
 
 \item{logger.name}{Select files from one logger only. \code{logger.name} has to match the System name as given in the file name. Allowed values are \code{"SYS1", "SYS2", ..., "SYS8"}}
 
-\item{use.parallel}{Logical. Option to use parallel processing for the file import. Parallel-computing has to be configured before this option can be used. Defaults to FALSE.}
+\item{time.zone}{Time zone to be used during import. Default is "Australia/Melbourne"}
 
-\item{skip.rows.}{Number of rows to skip in the file to speed up file import. Numeric, defaults to NA.}
+\item{checkduplicates}{Logical. Should duplicate rows in the data removed? Defaults to TRUE.}
+
+\item{skip.rows}{Number of rows to skip in the file to speed up file import. Numeric, defaults to NA.}
+
+\item{use.parallel}{Logical. Option to use parallel processing for the file import. Parallel-computing has to be configured before this option can be used. Defaults to FALSE.}
 }
 \value{
 Returns data frame with all imported *.dat files.

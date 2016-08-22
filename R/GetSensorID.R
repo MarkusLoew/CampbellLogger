@@ -20,6 +20,7 @@ sensor.names <- c("Batt_volt_Min", "RawCh_SGA2_1_Avg", "RawAh_SGA2_1_Avg", "RawB
 #'
 #' @param sensor.name Fullname of the Sensor from the header of the dat file. Has to be part of the list \code{sensor.names}
 #' @return Data frame with Fullname, SensorId, and Sensor name 
+#' @export
 
 GetSensorID <- function(sensor.name) {
  # Sap flow sensors SGA2

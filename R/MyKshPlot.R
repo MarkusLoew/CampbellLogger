@@ -9,7 +9,8 @@
 #' @export
 
 MyKshPlot <- function(data, date = Sys.time(), para = "Kshapp_Avg", ylim = c(0, 1)) {
-     #require(ggplot2) # will be loaded when the whle package is loaded
+    utils::globalVariables(c("SensorID"))
+    #require(ggplot2) # will be loaded when the whle package is loaded
      
     # filter data to only include the valid SensorIDs vor this Sensor type. 
     # This is to reduce the amount of SensorIDs in the figure legends

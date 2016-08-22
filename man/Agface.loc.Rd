@@ -10,6 +10,8 @@ Agface.loc
 }
 \description{
 Code to provide locations for Agface and Creswick in format needed for \code{CampbellSunriseSunset}. Agface field site position -36.751367, 142.114477, Creswick position -37.423003, 143.900472
+Agface.loc location of experiment
+Creswick.loc location of Campus
 }
 \keyword{datasets}
 
