@@ -1,6 +1,6 @@
 Package: CampbellLogger
 Title: Imports, combines Campbell logger files
-Version: 0.0.2.5
+Version: 0.0.2.6
 Authors@R: person("Markus", "Loew", email = "m.loew@unimelb.edu.au", role = c("aut", "cre"))
 Description: Import individual Campbell Scientific *.dat files from a CR1000
     data logger (specific to the AgFace experiment), or import and merge multiple
@@ -20,5 +20,5 @@ Imports:
 Suggests:
     parallel
 Maintainer: Markus Löw <m.loew@unimelb.edu.au>
-URL: https://github.com/MarkusLoew/AgFace/tree/master/packages/CampbellLogger
+URL: https://github.com/MarkusLoew/CampbellLogger
 RoxygenNote: 5.0.1

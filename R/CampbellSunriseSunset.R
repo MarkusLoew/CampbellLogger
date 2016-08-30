@@ -9,7 +9,7 @@
 
 CampbellSunriseSunset <- function(data, location = Agface.loc, DayLightSaving = FALSE) {
 
-utils::globalVariables(c("Date", "Agface.loc", "Creswick.loc"))
+utils::globalVariables(c("Date", "Agface.loc", "Creswick.loc", "ephemeral.times"))
 
 #require(maptools) # provides functions "sun-methods" # will be loaded when package is loaded
 # Agface field site position
