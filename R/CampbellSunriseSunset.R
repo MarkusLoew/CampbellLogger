@@ -58,25 +58,4 @@ CalcSunriseSunset <- function(date, spatial.loc = location) {
      
    return(out)
 }
-
-# calculate the sunrise and sunset times for each day in the data frame
-my.calendar.days <- format(data$TIMESTAMP, "%Y-%m-%d")
-my.calendar.days <- as.POSIXct(unique(my.calendar.days))
-
-my.calendar.days <- data.frame(Date = my.calendar.days)
-
-ephemeral.times <- plyr::ddply(my.calendar.days,
-                        plyr::.(Date),
-                        .progress = "text",
-                        function(x) CalcSunriseSunset(x$Date, 
-                                     spatial.loc = location))
-
-# correct for daylight saving if needed
-if (isTRUE(DayLightSaving) == TRUE) {
-# not needed any more after 
-	ephemeral.times$sunrise <- ephemeral.times$sunrise - my.hour
-	ephemeral.times$sunset  <- ephemeral.times$sunset  - my.hour
-}
-
-return(ephemeral.times)
 }
