@@ -9,7 +9,7 @@
 
 CampbellSunriseSunset <- function(data, location = Agface.loc, DayLightSaving = FALSE) {
 
-utils::globalVariables(c("Date", "Agface.loc", "Creswick.loc", "ephemeral.times"))
+utils::globalVariables(c("Date", "Agface.loc", "Creswick.loc"))
 
 #require(maptools) # provides functions "sun-methods" # will be loaded when package is loaded
 # Agface field site position
@@ -34,8 +34,6 @@ NoDaylightSaving <- function(my.time) {
 
 CalcSunriseSunset <- function(date, spatial.loc = location) {
    # calculate sunrise and sunset for a location
-   # requires maptools
-   # require(maptools)
    spatial.loc <- sp::SpatialPoints(spatial.loc,
                                 proj4string=sp::CRS("+proj=longlat +datum=WGS84"))
    my.sunrise <- maptools::sunriset(spatial.loc, 
@@ -58,4 +56,24 @@ CalcSunriseSunset <- function(date, spatial.loc = location) {
      
    return(out)
 }
+
+# calculate the sunrise and sunset times for each day in the data frame
+my.calendar.days <- format(data$TIMESTAMP, "%Y-%m-%d")
+my.calendar.days <- as.POSIXct(unique(my.calendar.days))
+
+my.calendar.days <- data.frame(Date = my.calendar.days)
+
+ephemeral.times <- plyr::ddply(my.calendar.days,
+                        plyr::.(Date),
+                        .progress = "text",
+                        function(x) CalcSunriseSunset(x$Date, 
+                                     spatial.loc = location))
+
+## correct for daylight saving if needed
+ if (isTRUE(DayLightSaving) == TRUE) {
+## not needed any more after 
+	ephemeral.times$sunrise <- ephemeral.times$sunrise - my.hour
+	ephemeral.times$sunset  <- ephemeral.times$sunset  - my.hour
+}
+return(ephemeral.times)
 }
