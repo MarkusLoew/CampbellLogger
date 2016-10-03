@@ -10,7 +10,7 @@
 CampbellSunriseSunset <- function(data, location = Agface.loc, DayLightSaving = FALSE) {
 
 #utils::globalVariables(c("Agface.loc", "Creswick.loc", "ephemeral.times"))
-Sys.setenv(TZ='GMT')
+#Sys.setenv(TZ='GMT')
 
 # one hour expressed in seconds
 my.hour <- 60 * 60

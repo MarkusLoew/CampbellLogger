@@ -4,8 +4,8 @@
 \alias{CampbellFileImport}
 \title{import a Campbell logger *.dat file}
 \usage{
-CampbellFileImport(file, time.zone = "Australia/Melbourne",
-  checkduplicates = TRUE, skip.rows = NA)
+CampbellFileImport(file, time.zone = "UTC+10", checkduplicates = TRUE,
+  skip.rows = NA)
 }
 \arguments{
 \item{file}{filename of the dat file}

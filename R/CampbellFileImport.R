@@ -7,7 +7,7 @@
 #' @export
 
 CampbellFileImport <- function(file, 
-                               time.zone = "Australia/Melbourne", 
+                               time.zone = "UTC+10", 
                                checkduplicates = TRUE,
                                skip.rows = NA) {
   # require(readr) # faster import, but problems whith coding "NA" 
