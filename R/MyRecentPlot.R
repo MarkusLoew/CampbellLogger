@@ -67,8 +67,9 @@ MyRecentPlot <- function(para, hours, data, logger = NA, yscale_min = NA, yscale
     if (isTRUE(ephemeral.time) == FALSE) {
        #do nothing
     } else {
-    my.sunset <- ephemeral.object$sunset[1:length(ephemeral.object$sunrise) - 1]
-    my.sunrise <- ephemeral.object$sunrise[2:length(ephemeral.object$sunrise)]
+    Sys.setenv(TZ='AEST')
+    my.sunset <- ephemeral.object$sunset[1:length(ephemeral.object$sunrise) - 1] - 14*60*60
+    my.sunrise <- ephemeral.object$sunrise[2:length(ephemeral.object$sunrise)] - 14*60*60
     
     p <- p + ggplot2::annotate("rect", 
          # xmin = ephemeral.times$sunset[1:length(ephemeral.times$sunrise) - 1],

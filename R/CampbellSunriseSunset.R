@@ -10,7 +10,7 @@
 CampbellSunriseSunset <- function(data, location = Agface.loc, DayLightSaving = FALSE) {
 
 #utils::globalVariables(c("Agface.loc", "Creswick.loc", "ephemeral.times"))
-#Sys.setenv(TZ='GMT')
+
 
 # one hour expressed in seconds
 my.hour <- 60 * 60
@@ -22,6 +22,7 @@ NoDaylightSaving <- function(my.time) {
 }
 
 CalcSunriseSunset <- function(date, spatial.loc = location) {
+   #Sys.setenv(TZ='AEST')
    # calculate sunrise and sunset for a location
    spatial.loc <- sp::SpatialPoints(spatial.loc,
                                 proj4string=sp::CRS("+proj=longlat +datum=WGS84"))
@@ -57,6 +58,21 @@ ephemeral.times <- plyr::ddply(my.calendar.days,
                         .progress = "text",
                         function(x) CalcSunriseSunset(x$Date, 
                                      spatial.loc = location))
+#GetTz <- function(x) {
+#         format(x, "%Z")
+#}
+
+#timezones <- as.data.frame(
+#             sapply(ephemeral.times, 
+#             function(x) GetTz(x)), stringsAsFactors = FALSE)
+
+#out <- sapply(ephemeral.times[, ], function(x) ifelse(format(x, "%Z") == "AEDT", x <- x - 60*60, x))
+#standard.time[, ] <- as.POSIXct(out[, ], origin = "1970-01-01", tz = "AEST")
+
+
+#small <- timezones$sunrise
+
+
 
 ## correct for daylight saving if needed
  if (isTRUE(DayLightSaving) == TRUE) {
