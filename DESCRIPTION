@@ -19,6 +19,6 @@ Imports:
     maptools
 Suggests:
     parallel
-Maintainer: Markus Löw <m.loew@unimelb.edu.au>
+Maintainer: Markus Loew <m.loew@unimelb.edu.au>
 URL: https://github.com/MarkusLoew/CampbellLogger
 RoxygenNote: 5.0.1
