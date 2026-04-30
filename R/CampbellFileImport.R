@@ -7,7 +7,7 @@
 #' @export
 
 CampbellFileImport <- function(file, 
-                               time.zone = "UTC+10", 
+                               time.zone = "UTC", 
                                checkduplicates = TRUE,
                                skip.rows = NA) {
   # require(readr) # faster import, but problems whith coding "NA" 
@@ -15,12 +15,13 @@ CampbellFileImport <- function(file,
   # converts the TIMESTAMP to POSIXct, given the provided time zone
   # returns a data frame
   
-  my.header   <- utils::read.csv(file, skip = 1, nrows = 4)
-  my.header   <- names(my.header)
-  my.descript <- utils::read.csv(file, skip = 3, nrows = 4)
-  my.descript <- names(my.descript)
+  # Read header efficiently with readLines instead of parsing entire rows
+  header_lines <- readLines(file, n = 4)
+  my.header <- strsplit(header_lines[2], ",", fixed = TRUE)[[1]]
+  my.header <- gsub('^"|"$', "", my.header)  # remove leading/trailing quotes
+  my.header <- make.names(my.header)          # sanitise names, replacing invalid chars with "."
 
-# only import last rows as defined by parameter lrows
+  # only import last rows as defined by parameter lrows
   # number of rows to skip for the actual file import
   to.skip <- 4
   if (!is.na(skip.rows)) {
@@ -28,7 +29,14 @@ CampbellFileImport <- function(file,
      to.skip <- base.skip + skip.rows
   }
 
-  df <- utils::read.csv(file, skip = to.skip, na.strings = c("NAN", "+INF", "-INF"))
+  # Use readr for faster import (5-10x faster than read.csv)
+  df <- readr::read_csv(
+    file,
+    skip = to.skip,
+    col_names = FALSE,
+    na = c("NAN", "+INF", "-INF"),
+    show_col_types = FALSE
+  )
 
   names(df) <- my.header
   names(df) <- gsub("\\.", "_", names(df))
@@ -37,11 +45,14 @@ CampbellFileImport <- function(file,
   # get rid of rows without TIMESTAMP - not sure why these exist
   df <- df[!is.na(df$TIMESTAMP), ]
   
-  # get rid of duplicate samples
-  df$RECORD <- 0
-  if (isTRUE(checkduplicates) == TRUE) {
-	  df <- unique(df)
+  # get rid of duplicate samples - this removes the Record label from the entries
+  # Campbell SCientific loggers can produce duplicate measurement entries with different record numbers  
+  if (isTRUE(checkduplicates)) {
+    df$RECORD <- 0
+    df <- df[!duplicated(df), ]
   }
+  # despite using readr, still have the outut as data.frame
+  df <- as.data.frame(df)
   
   return(df)
 }
