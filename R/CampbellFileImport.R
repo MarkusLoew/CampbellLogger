@@ -60,7 +60,7 @@ CampbellFileImport <- function(file,
       df <- df[not.duplicated, ]
       # put record number for the non-duplicated entries back in the data frame
       df$RECORD <- records[not.duplicated]
-      message(sum(!not.duplicated), " duplicate(s) found and removed from ", basename(file))
+      warning(sum(!not.duplicated), " duplicate(s) found and removed from ", basename(file))
     }
   }
   
