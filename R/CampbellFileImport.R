@@ -2,13 +2,15 @@
 #' @param file filename of the dat (TOA5) file
 #' @param time.zone Time zone, defaults to "UTC"
 #' @param checkduplicates Check for and remove duplicate measurements from the file. Logical, defaults to TRUE. A quick pre-check on TIMESTAMP only is done initially. The full deduplication is skipped if no duplicate timestamps exist.
-#' @return data frame with the imported measurements.
+#' @param importunits Import the units row (row 3 of the .dat file) as a separate data frame. Logical, defaults to FALSE. When TRUE, the function returns a named list with elements \code{data} (the measurements data frame) and \code{units} (a single-row data frame of units for each column).
+#' @return When \code{importunits = FALSE} (default), a data frame with the imported measurements. When \code{importunits = TRUE}, a named list with two data frames: \code{data} (measurements) and \code{units} (column units).
 #' @export
 
 CampbellFileImport <- function(file, 
                                time.zone = "UTC", 
                                checkduplicates = TRUE,
-                               skip.rows = NA) {
+                               skip.rows = NA,
+                               importunits = FALSE) {
   # require(readr) # faster import, but problems whith coding "NA" 
   # imports a single Campbell file as per given filename
   # converts the TIMESTAMP to POSIXct, given the provided time zone
@@ -19,6 +21,11 @@ CampbellFileImport <- function(file,
   my.header <- strsplit(header_lines[2], ",", fixed = TRUE)[[1]]
   my.header <- gsub('^"|"$', "", my.header)  # remove leading/trailing quotes
   my.header <- make.names(my.header)         # sanitise names, replacing invalid chars with "." similar to read.csv()
+  # Parse units from row 3 of the .dat file
+  my.units <- strsplit(header_lines[3], ",", fixed = TRUE)[[1]]
+  my.units <- gsub('^"|"$', "", my.units)  # remove leading/trailing quotes
+  units.df <- as.data.frame(t(my.units), stringsAsFactors = FALSE)
+  names(units.df) <- gsub("\\.", "_", my.header)
 
   # only import last rows as defined by parameter lrows
   # number of rows to skip for the actual file import
@@ -64,5 +71,8 @@ CampbellFileImport <- function(file,
     }
   }
   
+  if (isTRUE(importunits)) {
+    return(list(data = df, units = units.df))
+  }
   return(df)
 }
