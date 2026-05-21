@@ -1,2 +1,10 @@
-^.*\.Rproj$
+^\.git$
+^\.gitignore$
+^\.travis\.yml$
 ^\.Rproj\.user$
+^\.Rhistory$
+^\.RData$
+^\.Ruserdata$
+^\.DS_Store$
+^\.\.[Rr]check$
+^.*\.Rproj$

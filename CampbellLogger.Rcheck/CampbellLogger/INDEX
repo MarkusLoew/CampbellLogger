@@ -1,0 +1,16 @@
+Agface.loc              Locations of AgFace and Creswick campus site
+CampbellAllImport       Import several Campbell Science AgFace data
+                        logger *.dat files from a Folder
+CampbellCast            Function to re-organise Campbell data into a
+                        format suitable for creating figures per sensor
+                        type
+CampbellFileImport      import a Campbell logger *.dat file
+CampbellLogger          Import and process Campbell logger data
+CampbellSunriseSunset   Calculate sunrise and sunset times based on
+                        location and date for Campell *.dat files
+GetSensorID             Identify the SensorID associated with a
+                        specific sensor
+MyKshPlot               Visualise the Sap flow paramter Ksh for a given
+                        date
+MyRecentPlot            Visualise recent data measured by an AgFace
+                        Campbell Scientific logger over the last hours.
