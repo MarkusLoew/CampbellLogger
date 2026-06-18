@@ -17,4 +17,3 @@ data frame with values of all sensors of a given type in the same column
 \description{
 Merges sensor data from multiple sensors of the same type into one column. Identifies each value using SensorID created from the Sensor number, SYSTEM name and TIMESTAMP.
 }
-

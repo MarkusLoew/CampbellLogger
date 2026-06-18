@@ -1,6 +1,6 @@
 #' Calculate sunrise and sunset times based on location and date for Campell *.dat files
 #'
-#' @description Calculates sunrise and sunset for each unique day from the \code{TIMESTAMP} information of the logger file. Uses function \code{sunriseset} from package \pkg{maptools}
+#' @description Calculates sunrise and sunset for each unique day from the \code{TIMESTAMP} information of the logger file. Uses function \code{sunriseset} from package \pkg{suntools}
 #' @param data Data frame with a \code{TIMESTAMP} entry
 #' @param location Location of the measurement for which to calculate sunrise and sunset. Given in matrix format containing x and y coordinates. Defaults to \code{Agface.loc}.
 #' @param DayLightSaving Logical. If \code{TRUE} one hour is subtracted from the calculated sunrise and sunset times.
@@ -26,11 +26,11 @@ CalcSunriseSunset <- function(date, spatial.loc = location) {
    # calculate sunrise and sunset for a location
    spatial.loc <- sp::SpatialPoints(spatial.loc,
                                 proj4string=sp::CRS("+proj=longlat +datum=WGS84"))
-   my.sunrise <- maptools::sunriset(spatial.loc, 
+   my.sunrise <- suntools::sunriset(spatial.loc, 
                           date, 
                           direction = "sunrise", 
                           POSIXct.out = TRUE)
-   my.sunset  <- maptools::sunriset(spatial.loc, 
+   my.sunset  <- suntools::sunriset(spatial.loc, 
                           date, 
                           direction = "sunset",  
                           POSIXct.out = TRUE)

@@ -4,11 +4,15 @@
 \alias{CampbellAllImport}
 \title{Import several Campbell Science AgFace data logger *.dat files from a Folder}
 \usage{
-
-  CampbellAllImport(logger.folder = "~/AgFace/2015/Campbell_logger/logger_data",
-  log.interval = "5Min", logger.name = NA,
-  time.zone = "Australia/Melbourne", checkduplicates = TRUE,
-  skip.rows = NA, use.parallel = FALSE)
+CampbellAllImport(
+  logger.folder = "~/AgFace/2015/Campbell_logger/logger_data",
+  log.interval = "5Min",
+  logger.name = NA,
+  time.zone = "Australia/Melbourne",
+  checkduplicates = TRUE,
+  skip.rows = NA,
+  use.parallel = FALSE
+)
 }
 \arguments{
 \item{logger.folder}{Full path to the location of the *.dat files. Defaults to "~/AgFace/2015/Campbell_logger/logger_data"}
@@ -31,4 +35,3 @@ Returns data frame with all imported *.dat files.
 \description{
 Uses \code{\link{CampbellFileImport}} to import all *.dat files from a folder. Files are selected based on their log-interval that is part of their file name. Allowed intervals are "5Min", "15Min", "Hourly", "Daily".
 }
-

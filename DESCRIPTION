@@ -1,6 +1,6 @@
 Package: CampbellLogger
 Title: Imports, combines Campbell logger files
-Version: 0.0.3.0.0
+Version: 0.0.3.0.1
 Author: Markus Loew [aut, cre]
 Authors@R: c(person("Markus", "Loew", email = "m.loew@unimelb.edu.au", role = c("aut", "cre")))
 Description: Import individual Campbell Scientific *.dat files from a CR1000
@@ -17,9 +17,9 @@ Imports:
     ggplot2,
     readr,
     sp,
-    maptools
+    suntools
 Suggests:
     parallel
 Maintainer: Markus Loew <m.loew@unimelb.edu.au>
 URL: https://github.com/MarkusLoew/CampbellLogger
-RoxygenNote: 5.0.1
+Config/roxygen2/version: 8.0.0

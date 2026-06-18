@@ -2,10 +2,15 @@
 % Please edit documentation in R/CampbellFileImport.R
 \name{CampbellFileImport}
 \alias{CampbellFileImport}
-\title{import a Campbell logger *.dat file}
+\title{import a Campbell Scientific data logger *.dat (TOA5) file}
 \usage{
-CampbellFileImport(file, time.zone = "UTC", checkduplicates = TRUE,
-  skip.rows = NA, importunits = FALSE)
+CampbellFileImport(
+  file,
+  time.zone = "UTC",
+  checkduplicates = TRUE,
+  skip.rows = NA,
+  importunits = FALSE
+)
 }
 \arguments{
 \item{file}{filename of the dat (TOA5) file}
@@ -24,4 +29,3 @@ When \code{importunits = FALSE} (default), a data frame with the imported measur
 \description{
 import a Campbell Scientific data logger *.dat (TOA5) file
 }
-

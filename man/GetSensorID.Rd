@@ -15,4 +15,3 @@ Data frame with Fullname, SensorId, and Sensor name
 \description{
 Identify the SensorID associated with a specific sensor
 }
-

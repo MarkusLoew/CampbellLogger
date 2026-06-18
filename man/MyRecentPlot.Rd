@@ -4,9 +4,18 @@
 \alias{MyRecentPlot}
 \title{Visualise recent data measured by an AgFace Campbell Scientific logger over the last hours.}
 \usage{
-MyRecentPlot(para, hours, data, logger = NA, yscale_min = NA,
-  yscale_max = NA, cartesian = TRUE, sensor.colour = FALSE,
-  ephemeral.time = TRUE, ephemeral.object = ephemeral.times)
+MyRecentPlot(
+  para,
+  hours,
+  data,
+  logger = NA,
+  yscale_min = NA,
+  yscale_max = NA,
+  cartesian = TRUE,
+  sensor.colour = FALSE,
+  ephemeral.time = TRUE,
+  ephemeral.object = ephemeral.times
+)
 }
 \arguments{
 \item{para}{Name of the parameter to be visualised. See \code{\link{GetSensorID}} for a list of \code{sensor.names}. Works with non-missing data only.}
@@ -35,4 +44,3 @@ Returns a ggplot object.
 \description{
 Visualise a selected parameter from a Campbell logger file for a given time window starting from the latest timestamp in the data frame. All sensors that measure this parameter on each logger system will be shown. Sensors are identified by their SensorID and logger system ID.
 }
-

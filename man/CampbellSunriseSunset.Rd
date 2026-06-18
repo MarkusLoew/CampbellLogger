@@ -17,6 +17,5 @@ CampbellSunriseSunset(data, location = Agface.loc, DayLightSaving = FALSE)
 Returns a data frame with Date and sunrise/sunset information for each \code{TIMESTAMP}.
 }
 \description{
-Calculates sunrise and sunset for each unique day from the \code{TIMESTAMP} information of the logger file. Uses function \code{sunriseset} from package \pkg{maptools}
+Calculates sunrise and sunset for each unique day from the \code{TIMESTAMP} information of the logger file. Uses function \code{sunriseset} from package \pkg{suntools}
 }
-
