@@ -16,7 +16,7 @@
 CampbellAllImport <- function(logger.folder   = "~/AgFace/2015/Campbell_logger/logger_data",
                               log.interval    = "5Min",
                               logger.name     = NA,
-                              time.zone       = "Australia/Melbourne",
+                              time.zone       = "UTC",
                               checkduplicates = TRUE,
                               skip.rows       = NA,
                               use.parallel    = FALSE) {
