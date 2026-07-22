@@ -4,7 +4,7 @@
 #' @param checkduplicates Check for and remove duplicate measurements from the file. Logical, defaults to TRUE. A quick pre-check on TIMESTAMP only is done initially. The full deduplication is skipped if no duplicate timestamps exist.
 #' @param skip.rows Number of rows from the start of the data section to discard. Numeric, defaults to NA.
 #' @param importunits Import the units row (row 3 of the .dat file) as a separate data frame. Logical, defaults to FALSE. When TRUE, the function returns a named list with elements \code{data} (the measurements data frame) and \code{units} (a single-row data frame of units for each column).
-#' @return When \code{importunits = FALSE} (default), a data frame with the imported measurements. When \code{importunits = TRUE}, a named list with two data frames: \code{data} (measurements) and \code{units} (column units).
+#' @return When \code{importunits = FALSE} (default), a data frame with the imported measurements. When \code{importunits = TRUE}, a named list with two data frames: \code{data} (measurements) and \code{units} (units of the measurements). Access the data frames via e.g. \code{result$data} and \code{result$units}.
 #' @export
 
 CampbellFileImport <- function(file, 
@@ -73,7 +73,7 @@ CampbellFileImport <- function(file,
   }
   
   if (isTRUE(importunits)) {
-    return(list(data = df, units = units.df))
+    return(list(data = as.data.frame(df), units = as.data.frame(units.df)))
   }
   return(df)
 }

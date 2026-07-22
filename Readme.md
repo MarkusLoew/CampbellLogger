@@ -22,10 +22,11 @@ install.packages("devtools")
 library(devtools)
 ```
 
-Then, CampbellLogger package installation via
+Then, CampbellLogger package installation via pak or (previously) via devtools.
 
 ```{r}
-devtools::install_github("MarkusLoew/CampbellLogger")
+# devtools::install_github("MarkusLoew/CampbellLogger")
+pak::pak("MarkusLoew/CampbellLogger")
 ```
 
 Installation under Windows might require the installation of Rtools. There will be a prompt for it if needed.
