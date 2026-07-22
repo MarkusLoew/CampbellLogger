@@ -2,6 +2,5 @@
 
 #' @docType package
 #' @name CampbellLogger
-#' @description Import single or multiple Campbell logger *.dat files.
+#' @description Import Campbell Scientific TOA5 logger *.dat files.
 
-utils::globalVariables(c("SYSTEM", "variable", "Date"))
