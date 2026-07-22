@@ -24,7 +24,7 @@ CampbellFileImport(
 \item{importunits}{Import the units row (row 3 of the .dat file) as a separate data frame. Logical, defaults to FALSE. When TRUE, the function returns a named list with elements \code{data} (the measurements data frame) and \code{units} (a single-row data frame of units for each column).}
 }
 \value{
-When \code{importunits = FALSE} (default), a data frame with the imported measurements. When \code{importunits = TRUE}, a named list with two data frames: \code{data} (measurements) and \code{units} (column units).
+When \code{importunits = FALSE} (default), a data frame with the imported measurements. When \code{importunits = TRUE}, a named list with two data frames: \code{data} (measurements) and \code{units} (units of the measurements). Access the data frames via e.g. \code{result$data} and \code{result$units}.
 }
 \description{
 import a Campbell Scientific data logger *.dat (TOA5) file
